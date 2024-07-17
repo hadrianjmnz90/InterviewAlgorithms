@@ -61,7 +61,4 @@ public class PalindromeMethods {
         System.out.println(tempWord);
         return word.equalsIgnoreCase(tempWord);
     }
-
-
-
 }

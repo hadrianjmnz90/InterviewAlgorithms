@@ -10,7 +10,7 @@ public class FindLargestDiffInArray {
     //{1,3,4,6,5,0,23,24,9} ANSWER 23 YA QUE ES LA DIF MAS GRANDE ENTRE 0 Y 23
     @Test
     static void findLargestDifferenceInArray() {
-        int[] numbers = {3, 7, 8, 30, 15, 30, 50};
+        int[] numbers =  {3, 2, 3, 34, 23, 1, 10, 120};
         int diff = 0;
         for (int i = 0; i < numbers.length - 1; i++) {
             int temp = numbers[i + 1] - numbers[i];

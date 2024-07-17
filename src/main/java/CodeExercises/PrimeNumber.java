@@ -5,8 +5,6 @@ import org.testng.annotations.Test;
 
 public class PrimeNumber {
 
-
-
     @Test
     static void testIsPrime() {
         Assert.assertFalse(findPrimeNumber(0));
