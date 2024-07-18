@@ -13,7 +13,7 @@ public class FindLargestDiffInArray {
         int[] numbers =  {3, 2, 3, 34, 23, 1, 10, 120};
         int diff = 0;
         for (int i = 0; i < numbers.length - 1; i++) {
-            int temp = numbers[i + 1] - numbers[i];
+            int temp = Math.abs(numbers[i + 1] - numbers[i]); //Math.abs para considerar el valor abosuluto positvo
             System.out.println(temp);
             if (temp > diff) {
                 diff = temp;
