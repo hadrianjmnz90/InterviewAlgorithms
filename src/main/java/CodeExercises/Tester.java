@@ -30,7 +30,8 @@ public class Tester {
                 "18. DEVUELVE EL NUMERO QUE NO SE REPITE EN UN ARREGLO, LOS DEMAS NUMEROS SE REPITEN UNA VEZ\n",
                 "19. DADO UN ARREGLO DE NUMEROS O PALABRAS, DEVUELVE EL ARREGLO QUITANDO LOS NUMEROS O PALABRAS QUE SE REPITEN\n",
                 "20. ORDENA UNA LISTA DE PALABRAS ",
-        "21. DADO UN ARREGLO, DEVUELVE UNA LISTA O ARREGLO QUE CONTENGA UNICAMENTE LOS NUMEROS REPETIDOS"};
+        "21. DADO UN ARREGLO, DEVUELVE UNA LISTA O ARREGLO QUE CONTENGA UNICAMENTE LOS NUMEROS REPETIDOS",
+                "22. compare same indexes of 2 different arrays and create a new array for matching values"};
 
         Random random = new Random();
         int indiceAleatorio = random.nextInt(codeChallenges.length);
