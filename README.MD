@@ -20,4 +20,4 @@ MOST FREQUENT ASKED PROBLEMS
 19. DADO UN ARREGLO DE NUMEROS O PALABRAS, DEVUELVE EL ARREGLO QUITANDO LOS NUMEROS O PALABRAS QUE SE REPITEN
 20. ORDENA UNA LISTA DE PALABRAS
 21. DADO UN ARREGLO, DEVUELVE UNA LISTA O ARREGLO QUE CONTENGA UNICAMENTE LOS NUMEROS REPETIDOS
-22. compare same indexes of 2 different arrays and create a new array for matching values
+22. compare same indexes of 2 different arrays and create a new array for matching values //return list 

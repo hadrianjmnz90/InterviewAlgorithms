@@ -9,24 +9,24 @@ import java.util.Map;
 public class TwoSum {
 
     public static int[] twoSum(int[] numbers, int target) {
-        int[] indexes = {};
-        Map<Integer, Integer> numbersMap = new HashMap<>();
+        Map<Integer, Integer> complements = new HashMap<>();
+
+        // THE COMPLEMENT IS STORED AS THE KEY AND THE VALUE AS THE INDEX
 
         for (int i = 0; i < numbers.length; i++) {
             int complement = target - numbers[i];
-
-            if (numbersMap.containsKey(complement)) {
-                // Return the indices of the two numbers
-                return new int[]{numbersMap.get(complement), i};
+            if (complements.containsKey(complement)) {
+                // Return the indices of the two numbers, with complements.get, the value of the key is returned, means the index,
+                return new int[]{complements.get(complement), i};
             }
             // Add the current number and its index to the map
-            numbersMap.put(numbers[i], i);
+            complements.put(numbers[i], i);
         }
-        for (Map.Entry<Integer, Integer> entry : numbersMap.entrySet()) {
+        for (Map.Entry<Integer, Integer> entry : complements.entrySet()) {
             System.out.println(entry.getKey() + "= " + entry.getValue());
         }
 
-        return indexes;
+        return new int[]{};
     }
 
     @Test
