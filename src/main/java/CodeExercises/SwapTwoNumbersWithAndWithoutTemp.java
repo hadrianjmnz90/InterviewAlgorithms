@@ -6,13 +6,13 @@ public class SwapTwoNumbersWithAndWithoutTemp {
 
     @Test
     static void swapTwoNumbersWithoutTempVariable() {
-        int numX = 1;
-        int numY = 2;
-        System.out.println("Before Swapping: " + numX + " " + numY);
-        numX = numX + numY;
-        numY = numX - numY;
-        numX = numX - numY;
-        System.out.println("After Swapping " + numX + " " + numY);
+        int num1 = 1;
+        int num2 = 2;
+        System.out.println("Before Swapping: " + num1 + " " + num2);
+        num1 = num1 + num2;
+        num2 = num1 - num2;
+        num1 = num1 - num2;
+        System.out.println("After Swapping " + num1 + " " + num2);
     }
 
     @Test

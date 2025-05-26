@@ -15,15 +15,15 @@ public class CalculateIndexesOfNumbersThatAddToTarget {
     }
 
     static int[] calculateIndexesOfTarget(int[] numbers, int target) {
-        HashMap<Integer, Integer> numToIndex = new HashMap<>();
+        HashMap<Integer, Integer> complementMap = new HashMap<>();
         for (int i = 0; i < numbers.length; i++) {
             int complement = target - numbers[i];
-            if (numToIndex.containsKey(complement)) {
+            if (complementMap.containsKey(complement)) {
                 // If found, return the indexes of the two numbers
-                return new int[]{numToIndex.get(complement), i};
+                return new int[]{complementMap.get(complement), i};
             }
             // Otherwise, add the current number and its index to the HashMap
-            numToIndex.put(numbers[i], i);
+            complementMap.put(numbers[i], i);
         }
         // If no solution is found, return an empty array or null to indicate no solution
         return new int[0];
