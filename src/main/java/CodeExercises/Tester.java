@@ -2,7 +2,9 @@ package CodeExercises;
 
 import org.testng.annotations.Test;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Random;
 
 public class Tester {
 
@@ -20,11 +22,11 @@ public class Tester {
                 "9. SWAP THE VALUES WITH AND WITHOUT TEMP VARIABLE\n",
                 "10. PRINT UNIQUE NUMBERS/LETTERS VALUES IN ARRAY\n",
                 "11. CONTAR LAS VECES QUE SE REPITE UN CARACTER EN UNA PALABRA //se puede usar hashmap, un for/if o filter\n",
-                "12. DADO UN ARREGLO DE NUMEROS Y UN TARGET, DAME LOS INDICES DE LOS NUMEROS QUE SUMAN ESE TARGET ASUMIENDO QUE SIEMPRE HABRA UNA SOLUCION\n",
+                "12. CALCULATE INDEXES OF NUMBERS IN ARRAY THAT ADD TO TARGET, ASUMIENDO QUE SIEMPRE HABRA UNA SOLUCION\n",
                 "13. REVERSE A NUMBER / REVERSE A WORD\n",
                 "14. SUMAR TODOS LOS ELEMENTOS DE  UN ARRAY\n",
                 "15. CONTAR LAS VECES QUE SE REPITE UNA PALABRA EN UN TEXTO \n",
-                "16. ENCUENTRA LOS NUMEROS REPETIDOS EN DOS ARRAYS\n",
+                "16. FIND COMMON / REPEATED VALUES IN TWO ARRAYS\n",
                 "17. DEVUELVE EL NUMERO QUE NO SE REPITE EN UN ARREGLO, LOS DEMAS NUMEROS SE REPITEN UNA VEZ\n",
                 "18. DADO UN ARREGLO DE NUMEROS O PALABRAS, DEVUELVE EL ARREGLO QUITANDO LOS NUMEROS O PALABRAS QUE SE REPITEN",
                 "19. ORDENA UNA LISTA DE PALABRAS //se puede usar arrays.sort o convertir a linkedlist y usar collections.sort ",
@@ -34,7 +36,11 @@ public class Tester {
                         "el otro comparar los numeros en cualquier orden es el ejercicio 16 ",
                 "22. DADO UNA LISTA DE PALABRAS O NUMEROS QUITA LOS DUPLICADOS, EJEMPLO 1,2,2,1,4,6 DEVUELVE 1,2,4,6",
                 "23 MERGE TWO ARRAYS",
-                "24. ORDENAR UN ARRAY ASC O DESC // no creo pregunten porque la implementacion mas facil es de burbuja " +
+                "24 MOST REPEATED NUMBER IN ARRAY",
+                "25. FIND FIRST NON REPEATED CHAR IN STRING  - LINKEDHASHMAP KEEPS ELEMENTS IN INSERTION ORDER",
+                "26. FIND TWO MAX NUMBERS IN ARRAY",
+                "27 PERMUTATION",
+                "28. ORDENAR UN ARRAY ASC O DESC // no creo pregunten porque la implementacion mas facil es de burbuja " +
                         "pero no es eficiente, se puede usar el metodo Arrays.sort\n"};
 
         Random random = new Random();
@@ -51,9 +57,33 @@ public class Tester {
                 "coconut", "strawberry", "orange"};
         String text = "el arbol tiene frutas, las frutas son buenas, las frutas rojas son mejores, las frutas verdes";
         int[] numbers = {4, 3, 2, 1, 5, 30};
-        int[] numbers2 = {30, 100, 200, 4};
+        int[] numbers2 = {30, 30, 100,100, 200, 200, 4, 4, 100};
         char[] letters = {'a', 'a', 'c', 'b', 'b', 'a'};
-       
+
+        System.out.println(findMostRepeatedNumberInArray(numbers2));
+    }
+
+    static  Integer findMostRepeatedNumberInArray(int[] numbers){
+        int mostRepeatedNumber = 0;
+        HashMap<Integer, Integer> numberCounterMap = new HashMap<>();
+        for (int number : numbers) {
+            int count = numberCounterMap.getOrDefault(number, 0 ) + 1;
+            numberCounterMap.put(number, count);
+        }
+
+        int maxRepetitions = 0;
+
+        for (Map.Entry<Integer, Integer> entry : numberCounterMap.entrySet()) {
+
+            System.out.println(entry.getKey() + " se repite " + entry.getValue());
+            if (entry.getValue() > maxRepetitions){
+                maxRepetitions = entry.getValue();
+                mostRepeatedNumber = entry.getKey();
+            }
+        }
+        System.out.println("max repetitions: " + maxRepetitions);
+        return mostRepeatedNumber;
+
     }
 
 }
