@@ -32,4 +32,9 @@ public class SortWordsMethods {
             System.out.println(w);
         }
     }
+
+    static  String sortAListOfWords(String [] words) {
+        Arrays.sort(words, String.CASE_INSENSITIVE_ORDER);
+        return String.join(", ", words);
+    }
 }

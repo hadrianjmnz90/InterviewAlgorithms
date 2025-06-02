@@ -2,8 +2,7 @@ package CodeExercises;
 
 import org.testng.annotations.Test;
 
-import java.util.HashSet;
-import java.util.Random;
+import java.util.*;
 
 public class Tester {
 
@@ -27,11 +26,16 @@ public class Tester {
                 "15. CONTAR LAS VECES QUE SE REPITE UNA PALABRA EN UN TEXTO \n",
                 "16. ENCUENTRA LOS NUMEROS REPETIDOS EN DOS ARRAYS\n",
                 "17. DEVUELVE EL NUMERO QUE NO SE REPITE EN UN ARREGLO, LOS DEMAS NUMEROS SE REPITEN UNA VEZ\n",
-                "18. DADO UN ARREGLO DE NUMEROS O PALABRAS, DEVUELVE EL ARREGLO QUITANDO LOS NUMEROS O PALABRAS QUE SE REPITEN\n",
-                "19. ORDENA UNA LISTA DE PALABRAS ",
+                "18. DADO UN ARREGLO DE NUMEROS O PALABRAS, DEVUELVE EL ARREGLO QUITANDO LOS NUMEROS O PALABRAS QUE SE REPITEN",
+                "19. ORDENA UNA LISTA DE PALABRAS //se puede usar arrays.sort o convertir a linkedlist y usar collections.sort ",
                 "20. DADO UN ARREGLO, DEVUELVE UNA LISTA O ARREGLO QUE CONTENGA UNICAMENTE LOS NUMEROS REPETIDOS",
-                "21. compare same indexes of 2 different arrays and create a new array for matching values",
-                "22. ORDENAR UN ARRAY ASC O DESC // no creo pregunten porque la implementacion mas facil es de burbuja pero no es eficiente\n"};
+                "21. compare same indexes of 2 different arrays and create a new array for matching values " +
+                        "//un ejercicio es si se compara el mismo indice y " +
+                        "el otro comparar los numeros en cualquier orden es el ejercicio 16 ",
+                "22. DADO UNA LISTA DE PALABRAS O NUMEROS QUITA LOS DUPLICADOS, EJEMPLO 1,2,2,1,4,6 DEVUELVE 1,2,4,6",
+                "23 MERGE TWO ARRAYS",
+                "24. ORDENAR UN ARRAY ASC O DESC // no creo pregunten porque la implementacion mas facil es de burbuja " +
+                        "pero no es eficiente, se puede usar el metodo Arrays.sort\n"};
 
         Random random = new Random();
         int indiceAleatorio = random.nextInt(codeChallenges.length);
@@ -43,32 +47,13 @@ public class Tester {
     //primos> 2, 3, 5, 7, 11, 13, 17, 19   //solo son divisibles entre si y la unidad en un numero entero > greaters than 1
     @Test
     static void testCode() {
-        //    DADO UN ARREGLO DE NUMEROS Y UN TARGET, DAME LOS INDICES DE LOS NUMEROS
-        //    QUE SUMAN ESE TARGET ASUMIENDO QUE SIEMPRE HABRA UNA SOLUCION\n",
-        String[] words = {"banana", "apple", "coconut", "strawberry", "orange",
+        String[] words = {"banana", "apple", "coconut", "Strawberry", "orange",
                 "coconut", "strawberry", "orange"};
         String text = "el arbol tiene frutas, las frutas son buenas, las frutas rojas son mejores, las frutas verdes";
-        int[] numbers = {4,3,2,1};
-        int[] numbers2 = {4,6,9,1};
-          char[] letters = {'a','a','c','b','b','a'};
-          findRepeatedNumbers(numbers, numbers2);
-    }
-
-    static int findRepeatedNumbers(int [] array1, int [] array2){
-      //encuentra los numeros repetidos en 2 arrays
-        HashSet<Integer> numbersCopy = new HashSet<>();
-
-        for (int number : array1) {
-            numbersCopy.add(number);
-        }
-        System.out.println(numbersCopy);
-        for (int number : array2) {
-            if (numbersCopy.contains(number)){
-                System.out.println("repeated numbers are: " + number);
-            }
-        }
-
-        return 0;
+        int[] numbers = {4, 3, 2, 1, 5, 30};
+        int[] numbers2 = {30, 100, 200, 4};
+        char[] letters = {'a', 'a', 'c', 'b', 'b', 'a'};
+       
     }
 
 }
