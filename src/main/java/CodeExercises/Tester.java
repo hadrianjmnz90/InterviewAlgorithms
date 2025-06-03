@@ -2,9 +2,7 @@ package CodeExercises;
 
 import org.testng.annotations.Test;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Random;
+import java.util.*;
 
 public class Tester {
 
@@ -38,8 +36,7 @@ public class Tester {
                 "23 MERGE TWO ARRAYS",
                 "24 MOST REPEATED NUMBER IN ARRAY",
                 "25. FIND FIRST NON REPEATED CHAR IN STRING  - LINKEDHASHMAP KEEPS ELEMENTS IN INSERTION ORDER",
-                "26. FIND TWO MAX NUMBERS IN ARRAY",
-                "27 PERMUTATION",
+                "26. FIND TWO MAX NUMBERS IN ARRAY // no usar Arrays.sort por la eficiencia de O (n log n)",
                 "28. ORDENAR UN ARRAY ASC O DESC // no creo pregunten porque la implementacion mas facil es de burbuja " +
                         "pero no es eficiente, se puede usar el metodo Arrays.sort\n"};
 
@@ -56,36 +53,34 @@ public class Tester {
         String[] words = {"banana", "apple", "coconut", "Strawberry", "orange",
                 "coconut", "strawberry", "orange"};
         String text = "el arbol tiene frutas, las frutas son buenas, las frutas rojas son mejores, las frutas verdes";
-        int[] numbers = {4, 3, 2, 1, 5, 30};
-        int[] numbers2 = {30, 30, 100,100, 200, 200, 4, 4, 100};
+        int[] numbers = {4, 3, 2, 1, 5, 30, -10};
+        int[] numbers2 = {30, 30, 100, 100, 200, 200, 4, 4, 100, 200};
         char[] letters = {'a', 'a', 'c', 'b', 'b', 'a'};
 
-        System.out.println(findMostRepeatedNumberInArray(numbers2));
+        String word = "bdzc bcz";
+        int[] nums = {4, 9, 1, 43, 45, 355, 23};
+        System.out.println(Arrays.toString(findTwoMaxNumbers(nums)));
     }
 
-    static  Integer findMostRepeatedNumberInArray(int[] numbers){
-        int mostRepeatedNumber = 0;
-        HashMap<Integer, Integer> numberCounterMap = new HashMap<>();
-        for (int number : numbers) {
-            int count = numberCounterMap.getOrDefault(number, 0 ) + 1;
-            numberCounterMap.put(number, count);
+    static int[] findTwoMaxNumbers(int[] numbers) {
+        // FIND TWO MAX NUMBERS IN ARRAY
+        if (numbers.length < 2) {
+            throw new IllegalArgumentException("Array should contain at least two values");
         }
 
-        int maxRepetitions = 0;
+        int max1 = Integer.MIN_VALUE;
+        int max2 = Integer.MIN_VALUE;
 
-        for (Map.Entry<Integer, Integer> entry : numberCounterMap.entrySet()) {
-
-            System.out.println(entry.getKey() + " se repite " + entry.getValue());
-            if (entry.getValue() > maxRepetitions){
-                maxRepetitions = entry.getValue();
-                mostRepeatedNumber = entry.getKey();
+        for (int number : numbers) {
+            if (number > max1) {
+                max2 = max1;
+                max1 = number;
+            } else if (number > max2 && number != max1) {
+                max2 = number;
             }
         }
-        System.out.println("max repetitions: " + maxRepetitions);
-        return mostRepeatedNumber;
-
+        return new int[]{max1, max2};
     }
-
 }
 
 
