@@ -9,10 +9,10 @@ public class Tester {
     @Test
     static void randomCodeChallenge() {
         String[] codeChallenges = {
-                "1. ENCUENTRA SI LA PALABRA DADA ES PALINDROMO\n",
+                "1. ENCUENTRA SI LA PALABRA DADA ES PALINDROMO //USA STRINGBUILDER \n",
                 "2. BUSCAR LA PALABRA MAS REPETIDA EN UN TEXTO\n",
                 "3. ENCONTRAR EL NUMERO QUE MAS SE REPITE EN UN ARREGLO\n",
-                "4. NUMERO MAS GRANDE DE UN ARREGLO\n",
+                "4. NUMERO MAS GRANDE DE UN ARREGLO // simple for loop\n",
                 "5. FACTORIAL\n",
                 "6. NUMERO PRIMO\n",
                 "7. LA DIFERENCIA MAX O MIN ENTRE LOS ELEMENTOS DE UN ARRAY\n",

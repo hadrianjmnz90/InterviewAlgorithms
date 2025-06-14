@@ -54,11 +54,11 @@ public class PalindromeMethods {
     static boolean isWordPalindrome(String word){
         word = word.replaceAll(" ", "");
         System.out.println(word);
-        String tempWord = "";
+        StringBuilder reversedWord = new StringBuilder(); //es mejor ya que stringbuilder si es inmutable
         for (int i = word.length() -1; i >=0 ; i--) {
-            tempWord = tempWord + word.charAt(i);
+            reversedWord.append( word.charAt(i));
         }
-        System.out.println(tempWord);
-        return word.equalsIgnoreCase(tempWord);
+        System.out.println(reversedWord);
+        return word.equalsIgnoreCase(reversedWord.toString());
     }
 }

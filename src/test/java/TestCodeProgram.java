@@ -26,7 +26,7 @@ public class TestCodeProgram {
                 "credentials_enable_service", false,
                 "profile.password_manager_enabled", false
         ));
-        driver = new ChromeDriver();
+        //     driver = new ChromeDriver();
     }
 
     @Test
@@ -40,7 +40,7 @@ public class TestCodeProgram {
     }
 
     @DataProvider
-    public Object [] [] loginData(){
+    public Object[][] loginData() {
         return new Object[][]{
                 {"pedro", "secretpassword", false},
                 {"adrian", "", false},
@@ -82,7 +82,20 @@ public class TestCodeProgram {
 
     @Test
     public void testAlgoCode() {
+        String text = "El sol brillaba en el cielo. El viento soplaba suave, moviendo las hojas de los árboles. Los niños corrían por el campo, riendo y jugando. El perro ladraba mientras corría tras los niños, feliz de estar al aire libre. El día era perfecto.";
+int [] numbers = {4,1,2,34,56,2,34,56,65,23,4,34,34};
+        codeChallenge(numbers);
     }
 
-
+    public int codeChallenge(int[] numbers) {
+        //numero mas grande de un arreglo
+        int max  = 0;
+        for (int i = 0; i < numbers.length ; i++) {
+            if (numbers[i] > max) {
+                max = numbers[i];
+            }
+        }
+        System.out.println(max);
+        return max;
+    }
 }
