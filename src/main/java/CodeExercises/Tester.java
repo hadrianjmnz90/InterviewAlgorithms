@@ -37,6 +37,7 @@ public class Tester {
                 "24 MOST REPEATED NUMBER IN ARRAY",
                 "25. FIND FIRST NON REPEATED CHAR IN STRING  - LINKEDHASHMAP KEEPS ELEMENTS IN INSERTION ORDER",
                 "26. FIND TWO MAX NUMBERS IN ARRAY // no usar Arrays.sort por la eficiencia de O (n log n)",
+                "27. ANAGRAM",
                 "28. ORDENAR UN ARRAY ASC O DESC // no creo pregunten porque la implementacion mas facil es de burbuja " +
                         "pero no es eficiente, se puede usar el metodo Arrays.sort\n"};
 
