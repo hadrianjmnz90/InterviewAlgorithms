@@ -1,17 +1,17 @@
-import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import org.testng.annotations.*;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
 
 import java.time.Duration;
 import java.util.*;
-import java.util.concurrent.TimeUnit;
 
 public class TestCodeProgram {
     protected WebDriver driver;
@@ -82,20 +82,33 @@ public class TestCodeProgram {
 
     @Test
     public void testAlgoCode() {
-        String text = "El sol brillaba en el cielo. El viento soplaba suave, moviendo las hojas de los árboles. Los niños corrían por el campo, riendo y jugando. El perro ladraba mientras corría tras los niños, feliz de estar al aire libre. El día era perfecto.";
-int [] numbers = {4,1,2,34,56,2,34,56,65,23,4,34,34};
-        codeChallenge(numbers);
+        int[] numbers = {2, 3, 6, 10};
+        int[] numbers2 = {10, 5, 29, 2};
+
+        codeChallenge(numbers, numbers2);
+
     }
 
-    public int codeChallenge(int[] numbers) {
-        //numero mas grande de un arreglo
-        int max  = 0;
-        for (int i = 0; i < numbers.length ; i++) {
-            if (numbers[i] > max) {
-                max = numbers[i];
+    public int[] codeChallenge(int[] numbers, int[] numbers2) {
+        // compare values in any position
+        // usar un set para identificar los repetidos
+        Set<Integer> repeatedNumbers1 = new HashSet<>();
+        for (int number : numbers) {
+            repeatedNumbers1.add(number);
+        }
+
+        List<Integer> matches = new ArrayList<>();
+
+        for (int number : numbers2) {
+            if (repeatedNumbers1.contains(number)){
+                repeatedNumbers1.remove(number);
+            }else {
+                repeatedNumbers1.add(number);
             }
         }
-        System.out.println(max);
-        return max;
+
+        System.out.println(repeatedNumbers1);
+
+        return new int []{};
     }
 }
