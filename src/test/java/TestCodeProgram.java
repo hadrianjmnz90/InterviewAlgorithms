@@ -3,6 +3,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
@@ -37,6 +39,22 @@ public class TestCodeProgram {
 
         String actualTitle = driver.getTitle();
         Assert.assertEquals(actualTitle, "Maven Repository: Search/Browse/Explore");
+    }
+
+    @Test
+    public void fluentWaitCode(){
+        Wait<WebDriver> fluentWait = new FluentWait<>(driver)
+                .withTimeout(Duration.ofSeconds(10))
+                .pollingEvery(Duration.ofSeconds(1))
+                .ignoring(NoSuchElementException.class)
+                .ignoring(ElementNotInteractableException.class)
+                .ignoring(ElementClickInterceptedException.class)
+                .ignoring(StaleElementReferenceException.class);
+
+        WebElement loginButton = fluentWait.until(ExpectedConditions.elementToBeClickable(By.id("id")));
+
+        
+
     }
 
     @DataProvider
