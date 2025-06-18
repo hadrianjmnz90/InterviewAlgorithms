@@ -30,9 +30,9 @@ public class Tester {
                 "18. DADO UN ARREGLO DE NUMEROS O PALABRAS, DEVUELVE EL ARREGLO QUITANDO LOS NUMEROS O PALABRAS QUE SE REPITEN",
                 "19. ORDENA UNA LISTA DE PALABRAS //se puede usar arrays.sort o convertir a linkedlist y usar collections.sort ",
                 "20. DADO UN ARREGLO, DEVUELVE UNA LISTA O ARREGLO QUE CONTENGA UNICAMENTE LOS NUMEROS REPETIDOS",
-                "21. compare same indexes of 2 different arrays and create a new array for matching values " +
-                        "//un ejercicio es si se compara el mismo indice y " +
-                        "el otro comparar los numeros en cualquier orden es el ejercicio 16 ",
+                "21. compare same indexes of 2 different arrays and create a new array for matching values // use Math.min " +
+                        "//este ejercicio es si se compara el mismo indice y " +
+                        "el otro ejercicio comparar los numeros en cualquier orden es el ejercicio 16 --usa SET ",
                 "22. DADO UNA LISTA DE PALABRAS O NUMEROS QUITA LOS DUPLICADOS, EJEMPLO 1,2,2,1,4,6 DEVUELVE 1,2,4,6",
                 "23 MERGE TWO ARRAYS",
                 "24 MOST REPEATED NUMBER IN ARRAY",

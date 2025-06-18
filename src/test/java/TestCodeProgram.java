@@ -1,6 +1,4 @@
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
@@ -14,6 +12,7 @@ import org.testng.annotations.Test;
 
 import java.time.Duration;
 import java.util.*;
+import java.util.NoSuchElementException;
 
 public class TestCodeProgram {
     protected WebDriver driver;
@@ -100,33 +99,31 @@ public class TestCodeProgram {
 
     @Test
     public void testAlgoCode() {
-        int[] numbers = {2, 3, 6, 10};
-        int[] numbers2 = {10, 5, 29, 2};
-
+       int[] numbers = {1,2,7,6,10,30};
+        int[] numbers2 = {1,1,7,3,4,20};
+      //  System.out.println(codeChallenge(numbers));
+      //  Assert.assertEquals(codeChallenge(numbers), 37);
+      //  Assert.assertEquals(codeChallenge(numbers, 9), 2);
         codeChallenge(numbers, numbers2);
 
     }
 
-    public int[] codeChallenge(int[] numbers, int[] numbers2) {
-        // compare values in any position
-        // usar un set para identificar los repetidos
-        Set<Integer> repeatedNumbers1 = new HashSet<>();
-        for (int number : numbers) {
-            repeatedNumbers1.add(number);
-        }
-
-        List<Integer> matches = new ArrayList<>();
-
-        for (int number : numbers2) {
-            if (repeatedNumbers1.contains(number)){
-                repeatedNumbers1.remove(number);
-            }else {
-                repeatedNumbers1.add(number);
+    public int codeChallenge(int[] numbers, int [] numbers2) {
+        //compare same indx matching values
+        List<Integer> matchingValues = new ArrayList<>();
+        int length = Math.min(numbers.length, numbers2.length);
+        System.out.println("lenght" + length);
+        for (int i = 0; i < length ; i++) {
+            if (numbers[i] == numbers2[i]) {
+                matchingValues.add(numbers[i]);
             }
         }
+        int [] matchingArray = new int[matchingValues.size()];
+        for (int i = 0; i < matchingValues.size() ; i++) {
+            matchingArray[i] = matchingValues.get(i);
+        }
 
-        System.out.println(repeatedNumbers1);
-
-        return new int []{};
+        System.out.println(Arrays.toString(matchingArray));
+        return 0;
     }
 }
