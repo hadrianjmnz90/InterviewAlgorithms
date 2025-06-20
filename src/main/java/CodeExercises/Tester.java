@@ -28,7 +28,8 @@ public class Tester {
                 "16. FIND COMMON / REPEATED VALUES IN TWO ARRAYS -- en cualquier orden\n",
                 "17. DEVUELVE EL NUMERO QUE NO SE REPITE EN UN ARREGLO, LOS DEMAS NUMEROS SE REPITEN UNA VEZ\n",
                 "18. DADO UN ARREGLO DE NUMEROS O PALABRAS, DEVUELVE EL ARREGLO QUITANDO LOS NUMEROS O PALABRAS QUE SE REPITEN",
-                "19. ORDENA UNA LISTA DE PALABRAS //se puede usar arrays.sort o convertir a linkedlist y usar collections.sort ",
+                "19. ORDENA UNA LISTA DE PALABRAS //no uses Arrays.sort,  a list y usar collections.sort " +
+                        "ask if mayus position matters",
                 "20. DADO UN ARREGLO, DEVUELVE UNA LISTA O ARREGLO QUE CONTENGA UNICAMENTE LOS NUMEROS REPETIDOS",
                 "21. compare same indexes of 2 different arrays and create a new array for matching values // use Math.min " +
                         "//este ejercicio es si se compara el mismo indice y " +
@@ -38,7 +39,7 @@ public class Tester {
                 "24 MOST REPEATED NUMBER IN ARRAY",
                 "25. FIND FIRST NON REPEATED CHAR IN STRING  - LINKEDHASHMAP KEEPS ELEMENTS IN INSERTION ORDER",
                 "26. FIND TWO MAX NUMBERS IN ARRAY // no usar Arrays.sort por la eficiencia de O (n log n)",
-                "27. ANAGRAM",
+                "27. ANAGRAM //different word same letters // count letters with one map use +1, -1 ",
                 "28. ORDENAR UN ARRAY ASC O DESC // no creo pregunten porque la implementacion mas facil es de burbuja " +
                         "pero no es eficiente, se puede usar el metodo Arrays.sort\n"};
 

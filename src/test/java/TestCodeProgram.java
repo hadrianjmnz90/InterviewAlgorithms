@@ -41,7 +41,7 @@ public class TestCodeProgram {
     }
 
     @Test
-    public void fluentWaitCode(){
+    public void fluentWaitCode() {
         Wait<WebDriver> fluentWait = new FluentWait<>(driver)
                 .withTimeout(Duration.ofSeconds(10))
                 .pollingEvery(Duration.ofSeconds(1))
@@ -52,7 +52,6 @@ public class TestCodeProgram {
 
         WebElement loginButton = fluentWait.until(ExpectedConditions.elementToBeClickable(By.id("id")));
 
-        
 
     }
 
@@ -99,31 +98,46 @@ public class TestCodeProgram {
 
     @Test
     public void testAlgoCode() {
-       int[] numbers = {1,2,7,6,10,30};
-        int[] numbers2 = {1,1,7,3,4,20};
-      //  System.out.println(codeChallenge(numbers));
-      //  Assert.assertEquals(codeChallenge(numbers), 37);
-      //  Assert.assertEquals(codeChallenge(numbers, 9), 2);
-        codeChallenge(numbers, numbers2);
+        int[] numbers = {1, 2, 7, 6, 10, 30};
+        int[] numbers2 = {5, 3, 4, 7, 1, 9, 8, 10};
+        String[] words = {"Manzana", "pera", "melon", "Adrian", "Adrian", "adrian", "zapato", "Rojo"};
 
+        Assert.assertEquals( findFirstNonRepeatedChar("swiss"),'w');
+        Assert.assertEquals( findFirstNonRepeatedChar("aabbccdde"), 'e');
+        Assert.assertEquals( findFirstNonRepeatedChar("aabbcc"),  Character.MIN_VALUE);
     }
 
-    public int codeChallenge(int[] numbers, int [] numbers2) {
-        //compare same indx matching values
-        List<Integer> matchingValues = new ArrayList<>();
-        int length = Math.min(numbers.length, numbers2.length);
-        System.out.println("lenght" + length);
-        for (int i = 0; i < length ; i++) {
-            if (numbers[i] == numbers2[i]) {
-                matchingValues.add(numbers[i]);
-            }
-        }
-        int [] matchingArray = new int[matchingValues.size()];
-        for (int i = 0; i < matchingValues.size() ; i++) {
-            matchingArray[i] = matchingValues.get(i);
+    public Character findFirstNonRepeatedChar(String word){
+        String cleanedWord = word.replaceAll("\\s", "").toLowerCase();
+        LinkedHashMap<Character, Integer> letterCountMap = new LinkedHashMap<>();
+        for (char letter : cleanedWord.toCharArray()){
+            letterCountMap.put(letter, letterCountMap.getOrDefault(letter, 0)+ 1);
         }
 
-        System.out.println(Arrays.toString(matchingArray));
-        return 0;
+        for (Map.Entry<Character, Integer> entry : letterCountMap.entrySet()){
+            if (entry.getValue() == 1){
+                return entry.getKey();
+            }
+        }
+
+        return Character.MIN_VALUE;
+    }
+
+
+    public boolean basicBubbleSort(int[] numbers) {
+        int n = numbers.length;
+        for (int i = 0; i < n - 1; i++) {
+            for (int j = 0; j < n - i - 1; j++) {
+                if (numbers[j] > numbers[j + 1]) {
+                    // Intercambio de elementos
+                    int temp = numbers[j];
+                    numbers[j] = numbers[j + 1];
+                    numbers[j + 1] = temp;
+                }
+            }
+        }
+
+        System.out.println(Arrays.toString(numbers));
+        return true;
     }
 }
