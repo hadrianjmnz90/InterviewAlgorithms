@@ -22,7 +22,7 @@ public class Tester {
                 "11. CONTAR LAS VECES QUE SE REPITE UN CARACTER EN UNA PALABRA //se puede usar hashmap, un for/if o filter\n",
                 "12. CALCULATE INDEXES OF NUMBERS IN ARRAY THAT ADD TO TARGET," +
                         " ASUMIENDO QUE SIEMPRE HABRA UNA SOLUCION // COMPLEMENT MAP  ",
-                "13. REVERSE A NUMBER / REVERSE A WORD\n",
+                "13. REVERSE A NUMBER - use while, 10 al final / REVERSE A WORD\n",
                 "14. SUMAR TODOS LOS ELEMENTOS DE  UN ARRAY -- for loop n",
                 "15. CONTAR LAS VECES QUE SE REPITE UNA PALABRA EN UN TEXTO \n",
                 "16. FIND COMMON / REPEATED VALUES IN TWO ARRAYS -- en cualquier orden\n",
