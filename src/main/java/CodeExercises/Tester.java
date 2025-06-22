@@ -15,7 +15,7 @@ public class Tester {
                 "4. NUMERO MAS GRANDE DE UN ARREGLO // simple for loop\n",
                 "5. FACTORIAL //multiplicar todos los numeros del numero //no empieza en 0\n",
                 "6. NUMERO PRIMO\n",
-                "7. LA DIFERENCIA MAX O MIN ENTRE LOS ELEMENTOS DE UN ARRAY\n",
+                "7. LA DIFERENCIA MAX O MIN ENTRE LOS ELEMENTOS DE UN ARRAY --adyacentes o cualquier posicion\n",
                 "8. FIBONACCI //se va sumando los numeros anteriores es el de a=0, b=1 , a+b, a-b\n",
                 "9. SWAP THE VALUES WITH AND WITHOUT TEMP VARIABLE\n",
                 "10. PRINT UNIQUE NUMBERS/LETTERS VALUES IN ARRAY\n",

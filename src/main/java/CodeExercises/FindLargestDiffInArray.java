@@ -4,7 +4,8 @@ import org.testng.annotations.Test;
 
 import java.util.Arrays;
 
-public class FindLargestDiffInArray {
+public class
+FindLargestDiffInArray {
 
     //assuming the question is largest difference in adjacent array, meaning items next to each other
     //{1,3,4,6,5,0,23,24,9} ANSWER 23 YA QUE ES LA DIF MAS GRANDE ENTRE 0 Y 23

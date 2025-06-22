@@ -1,4 +1,5 @@
 import org.openqa.selenium.*;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
@@ -27,7 +28,7 @@ public class TestCodeProgram {
                 "credentials_enable_service", false,
                 "profile.password_manager_enabled", false
         ));
-        //     driver = new ChromeDriver();
+        //          driver = new ChromeDriver();
     }
 
     @Test
@@ -93,51 +94,48 @@ public class TestCodeProgram {
         if (driver != null) {
             driver.close();
         }
-
     }
 
     @Test
-    public void testAlgoCode() {
-        int[] numbers = {1, 2, 7, 6, 10, 30};
-        int[] numbers2 = {5, 3, 4, 7, 1, 9, 8, 10};
-        String[] words = {"Manzana", "pera", "melon", "Adrian", "Adrian", "adrian", "zapato", "Rojo"};
-
-        Assert.assertEquals( findFirstNonRepeatedChar("swiss"),'w');
-        Assert.assertEquals( findFirstNonRepeatedChar("aabbccdde"), 'e');
-        Assert.assertEquals( findFirstNonRepeatedChar("aabbcc"),  Character.MIN_VALUE);
+    public void validateCorrectResult(){
+       Character result = findFirstNonRepeatedChar("Swiss");
+        Assert.assertEquals(result, 'w');
     }
 
-    public Character findFirstNonRepeatedChar(String word){
-        String cleanedWord = word.replaceAll("\\s", "").toLowerCase();
-        LinkedHashMap<Character, Integer> letterCountMap = new LinkedHashMap<>();
-        for (char letter : cleanedWord.toCharArray()){
-            letterCountMap.put(letter, letterCountMap.getOrDefault(letter, 0)+ 1);
+    @Test
+    public void validateWrongResultTest(){
+        Character result = findFirstNonRepeatedChar("Swiss");
+        Assert.assertNotEquals(result, 's');
+    }
+
+
+    @Test(expectedExceptions = IllegalArgumentException.class)
+    public void validateNullValue(){
+        Character result = findFirstNonRepeatedChar(null);
+
+    }
+
+    public Character  findFirstNonRepeatedChar(String word) {
+
+        if (word == null) throw new IllegalArgumentException("null");
+
+        word = word.toLowerCase();
+        LinkedHashMap<Character, Integer> letterCounterMap = new LinkedHashMap<>();
+        for (Character letter : word.toCharArray()){
+            letterCounterMap.put(letter, letterCounterMap.getOrDefault(letter, 0) + 1);
         }
 
-        for (Map.Entry<Character, Integer> entry : letterCountMap.entrySet()){
+        for (Map.Entry<Character, Integer> entry: letterCounterMap.entrySet()){
+            System.out.println(entry.getKey() + " " + entry.getValue());
             if (entry.getValue() == 1){
+                System.out.println(entry.getKey());
                 return entry.getKey();
+
             }
         }
-
-        return Character.MIN_VALUE;
-    }
-
-
-    public boolean basicBubbleSort(int[] numbers) {
-        int n = numbers.length;
-        for (int i = 0; i < n - 1; i++) {
-            for (int j = 0; j < n - i - 1; j++) {
-                if (numbers[j] > numbers[j + 1]) {
-                    // Intercambio de elementos
-                    int temp = numbers[j];
-                    numbers[j] = numbers[j + 1];
-                    numbers[j + 1] = temp;
-                }
-            }
-        }
-
-        System.out.println(Arrays.toString(numbers));
-        return true;
+        return null;
     }
 }
+
+
+
