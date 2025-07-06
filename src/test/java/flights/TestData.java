@@ -1,3 +1,5 @@
+package flights;
+
 public class TestData {
 
     final static String DEPARTURE_CITY = "CDMX";

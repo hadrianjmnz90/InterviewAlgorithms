@@ -101,24 +101,26 @@ public class TestCodeProgram {
 
     @Test()
     public void test() {
-        int[] numbers1 = {3, 20, 10}; // 7
-        int[] numbers2 = {3, 5,  10, 1, 2};  //20, indices 0 y 4
-        challenge(numbers1, numbers2);
+        int[] numbers1 = {3, 20, 10, 100, 20, 10, 3}; // 7
+        int[] numbers2 = {3,  5,  10, 1, 2, 10,  5};  //20, indices 0 y 4
+                          //2    5   9  1  8
+        challenge(numbers1);
     }
 
-    public void challenge(int [] array1,  int [] array2) {
-        //MERGE TWO ARRAYS
-        int [] mergedArray = new int[array1.length + array2.length];
-        for (int i = 0; i <array1.length ; i++) {
-            mergedArray[i] = array1[i];
-        }
-        for (int i = 0; i <array2.length ; i++) {
-            mergedArray[i + array1.length] = array2[i];
+    public void  challenge(int [] numbers) {
+        // return not duplicated number
+
+        HashMap<Integer, Integer> numberCounter = new HashMap<>();
+        for (int number : numbers){
+            int count = numberCounter.getOrDefault(number, 0) + 1;
+
+             numberCounter.put(number, count);
         }
 
-        System.out.println(Arrays.toString(mergedArray));
+        for (Map.Entry<Integer, Integer> entry : numberCounter.entrySet()){
+            if (entry.getValue() == 1){
+                System.out.println(entry.getKey());
+            }
+        }
     }
 }
-
-
-

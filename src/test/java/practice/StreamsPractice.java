@@ -2,8 +2,7 @@ package practice;
 
 import org.testng.annotations.Test;
 
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class StreamsPractice {
@@ -18,6 +17,23 @@ public class StreamsPractice {
             new Product("Pen", 2.00, "Stationery"),
             new Product("Disk", 3.50, "Electronics")
     );
+//Group all products by category, so the result is a Map<String, List<Product>>.
+    @Test
+    public void groupProductsByCategory (){
+       Map<String, List<Product>> groupedProducts = products.stream()
+               .collect(Collectors.groupingBy(Product::getCategory));
+
+       System.out.println(groupedProducts);
+    }
+
+  //  Find the most expensive product in the list. Return it as an Optional<Product> (since the list might be empty).
+    @Test
+    public void getMostExpensiveProduct(){
+        Optional<Product> mostExpensiveProduct = products.stream()
+                .max(Comparator.comparingDouble(Product::getPrice));
+
+        mostExpensiveProduct.ifPresent(p -> System.out.println("Most expensive: " + p));
+    }
 
     @Test
     public void getAllProductsUnder5Dollars(){
