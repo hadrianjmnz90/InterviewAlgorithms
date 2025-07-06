@@ -40,7 +40,8 @@ public class Tester {
                 "25. FIND FIRST NON REPEATED CHAR IN STRING  - LINKEDHASHMAP KEEPS ELEMENTS IN INSERTION ORDER",
                 "26. FIND TWO MAX NUMBERS IN ARRAY // no usar Arrays.sort por la eficiencia de O (n log n)",
                 "27. ANAGRAM //different word same letters // count letters with one map use +1, -1 ",
-                "28. ORDENAR UN ARRAY ASC O DESC // no creo pregunten porque la implementacion mas facil es de burbuja " +
+                "28. Given a two digit number, return the sum of its two digits 44 = 8, use division and module",
+                "29. ORDENAR UN ARRAY ASC O DESC // no creo pregunten porque la implementacion mas facil es de burbuja " +
                         "pero no es eficiente, se puede usar el metodo Arrays.sort\n"};
 
         Random random = new Random();

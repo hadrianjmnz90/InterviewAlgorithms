@@ -1,3 +1,5 @@
+package practice;
+
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -28,7 +30,7 @@ public class TestCodeProgram {
                 "credentials_enable_service", false,
                 "profile.password_manager_enabled", false
         ));
-        //          driver = new ChromeDriver();
+        //         driver = new ChromeDriver();
     }
 
     @Test
@@ -96,44 +98,25 @@ public class TestCodeProgram {
         }
     }
 
-    @Test
-    public void validateCorrectResult(){
-       Character result = findFirstNonRepeatedChar("Swiss");
-        Assert.assertEquals(result, 'w');
+
+    @Test()
+    public void test() {
+        int[] numbers1 = {3, 20, 10}; // 7
+        int[] numbers2 = {3, 5,  10, 1, 2};  //20, indices 0 y 4
+        challenge(numbers1, numbers2);
     }
 
-    @Test
-    public void validateWrongResultTest(){
-        Character result = findFirstNonRepeatedChar("Swiss");
-        Assert.assertNotEquals(result, 's');
-    }
-
-
-    @Test(expectedExceptions = IllegalArgumentException.class)
-    public void validateNullValue(){
-        Character result = findFirstNonRepeatedChar(null);
-
-    }
-
-    public Character  findFirstNonRepeatedChar(String word) {
-
-        if (word == null) throw new IllegalArgumentException("null");
-
-        word = word.toLowerCase();
-        LinkedHashMap<Character, Integer> letterCounterMap = new LinkedHashMap<>();
-        for (Character letter : word.toCharArray()){
-            letterCounterMap.put(letter, letterCounterMap.getOrDefault(letter, 0) + 1);
+    public void challenge(int [] array1,  int [] array2) {
+        //MERGE TWO ARRAYS
+        int [] mergedArray = new int[array1.length + array2.length];
+        for (int i = 0; i <array1.length ; i++) {
+            mergedArray[i] = array1[i];
+        }
+        for (int i = 0; i <array2.length ; i++) {
+            mergedArray[i + array1.length] = array2[i];
         }
 
-        for (Map.Entry<Character, Integer> entry: letterCounterMap.entrySet()){
-            System.out.println(entry.getKey() + " " + entry.getValue());
-            if (entry.getValue() == 1){
-                System.out.println(entry.getKey());
-                return entry.getKey();
-
-            }
-        }
-        return null;
+        System.out.println(Arrays.toString(mergedArray));
     }
 }
 
