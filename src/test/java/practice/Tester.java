@@ -1,4 +1,4 @@
-package CodeExercises;
+package practice;
 
 import org.testng.annotations.Test;
 
@@ -26,7 +26,7 @@ public class Tester {
                 "13. REVERSE A NUMBER - use while, 10 al final / REVERSE A WORD\n",
                 "14. SUMAR TODOS LOS ELEMENTOS DE  UN ARRAY -- for loop n",
                 "15. CONTAR LAS VECES QUE SE REPITE UNA PALABRA EN UN TEXTO \n",
-                "16. FIND COMMON / REPEATED VALUES IN TWO ARRAYS -- en cualquier orden\n",
+                "16. FIND COMMON VALUES IN TWO ARRAYS -- use two sets en cualquier orden\n",
                 "17. DEVUELVE EL NUMERO QUE NO SE REPITE EN UN ARREGLO, LOS DEMAS NUMEROS SE REPITEN UNA VEZ\n",
                 "18. DADO UN ARREGLO DE NUMEROS O PALABRAS, DEVUELVE EL ARREGLO QUITANDO LOS NUMEROS O PALABRAS QUE SE REPITEN",
                 "19. ORDENA UNA LISTA DE PALABRAS //no uses Arrays.sort,  a list y usar collections.sort " +

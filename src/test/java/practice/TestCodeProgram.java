@@ -101,26 +101,38 @@ public class TestCodeProgram {
 
     @Test()
     public void test() {
-        int[] numbers1 = {3, 20, 10, 100, 20, 10, 3}; // 7
-        int[] numbers2 = {3,  5,  10, 1, 2, 10,  5};  //20, indices 0 y 4
-                          //2    5   9  1  8
-        challenge(numbers1);
+        int[] numbers1 = {1,4,6,8,10}; // 7
+        int[] numbers2 = { 10,6,1,20,100};  //20, indices 0 y 4
+        String [] words = {"Zorro", "zapato", "manzana", "banana"};
+        System.out.println(     challenge("Roma", "amor"));
+        System.out.println(     challenge("Roma", "Romo"));
+        System.out.println(     challenge("Roma", "amo"));
+        System.out.println(     challenge("", "amor"));
+        System.out.println(     challenge("Roma", null));
+        System.out.println(     challenge("SILENT", "LISTEN"));
+
     }
 
-    public void  challenge(int [] numbers) {
-        // return not duplicated number
+    public boolean  challenge(String  word1, String word2) {
+        //  anagram roma amor
+        if (word1 == null || word2 == null || word1.length() != word2.length()) return false;
 
-        HashMap<Integer, Integer> numberCounter = new HashMap<>();
-        for (int number : numbers){
-            int count = numberCounter.getOrDefault(number, 0) + 1;
-
-             numberCounter.put(number, count);
+        String cleanedWord1 = word1.toLowerCase().trim();
+        String cleanedWord2 = word2.toLowerCase().trim();
+        HashMap<Character, Integer> wordCounter = new HashMap<>();
+        for (Character letter : cleanedWord1.toCharArray()){
+            int count = wordCounter.getOrDefault(letter, 0) + 1;
+            wordCounter.put(letter, count);
         }
 
-        for (Map.Entry<Integer, Integer> entry : numberCounter.entrySet()){
-            if (entry.getValue() == 1){
-                System.out.println(entry.getKey());
-            }
+        for (Character letter : cleanedWord2.toCharArray()){
+            int count = wordCounter.getOrDefault(letter, 0) - 1;
+            wordCounter.put(letter, count);
         }
+
+        for (int count : wordCounter.values()){
+            if (count != 0) return false;
+        }
+        return true;
     }
 }
