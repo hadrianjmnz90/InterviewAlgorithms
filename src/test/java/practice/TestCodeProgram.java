@@ -101,38 +101,21 @@ public class TestCodeProgram {
 
     @Test()
     public void test() {
-        int[] numbers1 = {1,4,6,8,10}; // 7
+        int[] numbers1 = {1,4,6,8,1,4,8};
         int[] numbers2 = { 10,6,1,20,100};  //20, indices 0 y 4
-        String [] words = {"Zorro", "zapato", "manzana", "banana"};
-        System.out.println(     challenge("Roma", "amor"));
-        System.out.println(     challenge("Roma", "Romo"));
-        System.out.println(     challenge("Roma", "amo"));
-        System.out.println(     challenge("", "amor"));
-        System.out.println(     challenge("Roma", null));
-        System.out.println(     challenge("SILENT", "LISTEN"));
 
+        System.out.println(challenge("banana", 'a'));
     }
 
-    public boolean  challenge(String  word1, String word2) {
-        //  anagram roma amor
-        if (word1 == null || word2 == null || word1.length() != word2.length()) return false;
-
-        String cleanedWord1 = word1.toLowerCase().trim();
-        String cleanedWord2 = word2.toLowerCase().trim();
-        HashMap<Character, Integer> wordCounter = new HashMap<>();
-        for (Character letter : cleanedWord1.toCharArray()){
-            int count = wordCounter.getOrDefault(letter, 0) + 1;
-            wordCounter.put(letter, count);
-        }
-
-        for (Character letter : cleanedWord2.toCharArray()){
-            int count = wordCounter.getOrDefault(letter, 0) - 1;
-            wordCounter.put(letter, count);
-        }
-
-        for (int count : wordCounter.values()){
-            if (count != 0) return false;
-        }
-        return true;
+    public int  challenge(String word1, char targetLetter) {
+   //     11. CONTAR LAS VECES QUE SE REPITE UN CARACTER EN UNA PALABRA //se puede usar hashmap, un for/if o filter
+        String cleanedWord = word1.toLowerCase().trim();
+        int letterCount = 0;
+       for (char letter : cleanedWord.toCharArray()){
+           if (letter == targetLetter){
+               letterCount++;
+           }
+       }
+       return letterCount;
     }
 }

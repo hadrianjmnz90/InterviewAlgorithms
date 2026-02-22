@@ -1,5 +1,7 @@
 package practice;
 
+import org.testng.Assert;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import java.util.*;
@@ -53,39 +55,57 @@ public class Tester {
     //factorial de 0 a 10......1, 1, 2, 6, 24, 120, 720, 5040, 40320, 362880, 3628800 // multiply every number before the number !5 = 5x4x3x2x1
     // fibo....... 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, … //la suma de los 2 numeros anteriores por ejemplo 8 = 5+3 ; el siguiente seria 8 + 5 = 13
     //primos> 2, 3, 5, 7, 11, 13, 17, 19   //solo son divisibles entre si y la unidad en un numero entero > greaters than 1
-    @Test
-    static void testCode() {
-        String[] words = {"banana", "apple", "coconut", "Strawberry", "orange",
-                "coconut", "strawberry", "orange"};
-        String text = "el arbol tiene frutas, las frutas son buenas, las frutas rojas son mejores, las frutas verdes";
-        int[] numbers = {4, 3, 2, 1, 5, 30, -10};
-        int[] numbers2 = {30, 30, 100, 100, 200, 200, 4, 4, 100, 200};
-        char[] letters = {'a', 'a', 'c', 'b', 'b', 'a'};
-
-        String word = "bdzc bcz";
-        int[] nums = {4, 9, 1, 43, 45, 355, 23};
-        System.out.println(Arrays.toString(findTwoMaxNumbers(nums)));
+    @Test(dataProvider = "GameOptions")
+    static void playRockPaperScissors(String player1, String player2, String result) {
+        //method to choose winner
+        // test the method with data providers
+        // data providers method with combinations and result for example paper, scissors, p1 wins!
+        Assert.assertEquals(chooseWinner(player1, player2), result);
     }
 
-    static int[] findTwoMaxNumbers(int[] numbers) {
-        // FIND TWO MAX NUMBERS IN ARRAY
-        if (numbers.length < 2) {
-            throw new IllegalArgumentException("Array should contain at least two values");
+    static String chooseWinner(String player1, String player2) {
+        if (player1 == null || player2 == null || isSelectionValid(player1) == false
+                || isSelectionValid(player2) == false) return "Invalid Data!";
+        if (player1.equals(player2)) return "Tie!";
+        if ((player1.equals("Piedra") && player2.equals("Tijera"))
+                || (player1.equals("Tijera") && player2.equals("Papel"))
+                || (player1.equals("Papel") && player2.equals("Piedra"))) {
+            return "Player 1 Wins!";
         }
+        return "Player 2 Wins!";
+    }
 
-        int max1 = Integer.MIN_VALUE;
-        int max2 = Integer.MIN_VALUE;
-
-        for (int number : numbers) {
-            if (number > max1) {
-                max2 = max1;
-                max1 = number;
-            } else if (number > max2 && number != max1) {
-                max2 = number;
+    static boolean isSelectionValid(String playerOption) {
+        String[] options = {"Piedra", "Papel", "Tijera"};
+        for (String option : options) {
+            if (playerOption.equalsIgnoreCase(option)) {
+                return true;
             }
         }
-        return new int[]{max1, max2};
+        return false;
     }
+
+    @DataProvider(name = "GameOptions")
+    public Object[][] gameTester() {
+        return new Object[][]{
+                {"Piedra", "Tijera", "Player 1 Wins!"},
+                {"Papel", "Piedra", "Player 1 Wins!"},
+                {"Tijera", "Papel", "Player 1 Wins!"},
+                {"Tijera", "Tijera", "Tie!"},
+                {"Papel", "Papel", "Tie!"},
+                {"Piedra", "Piedra", "Tie!"},
+                {"Piedra", "Papel", "Player 2 Wins!"},
+                {"Papel", "Tijera", "Player 2 Wins!"},
+                {"Tijera", "Piedra", "Player 2 Wins!"},
+                {null, "Piedra", "Invalid Data!"},
+                {null, null, "Invalid Data!"},
+                {"Papel", null, "Invalid Data!"},
+                {"Pedro", "Tijera", "Invalid Data!"},
+                {"Elefante", "Piedra", "Invalid Data!"},
+        };
+    }
+
+
 }
 
 

@@ -1,15 +1,10 @@
-import org.testng.annotations.Test;
+public class ChallengeNoEdit {
 
-import java.util.ArrayList;
-import java.util.List;
-
-public class Challenge {
-    @Test
-    public void getFirstNPrimeNumbers() {
+/*    public void getFirstNPrimeNumbers() {
         int counter = 0;
         List<Integer> firstNPrimeNumbers = new ArrayList<>();
-        for (int i = 2; i > 0; i++) {
 
+        for (int i = 0; i > 0; i++) {
             if (isItPrimeNumber(i)) {
                 counter++;
                 firstNPrimeNumbers.add(i);
@@ -18,16 +13,14 @@ public class Challenge {
                 break;
             }
         }
-        System.out.println(firstNPrimeNumbers);
+        sout(firstNPrimeNumbers);
     }
 
     public boolean isItPrimeNumber(int target) {
         for (int i = 2; i <= target / 2; i++) {
-            if (target % i == 0) {
-                return false;
+            if (target % i != 0) {
+                return =false;
             }
-
-        }
-        return true;
+            return true;
+        } */
     }
-}
